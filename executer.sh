@@ -31,6 +31,6 @@ fi
 g++ "$FILE" -o "$FILENAME".exe
 
 TEM=$( { time ./"$FILENAME".exe < inputer.txt > outer.txt; } 2>&1 | awk '/^user/ {print $2}' )
-echo time taken in  $TEM
+echo time taken in execution  $TEM
 
 
