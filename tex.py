@@ -19,7 +19,7 @@ try:
             else:
               #  print(line,end="")
                 temp=temp+line
-    if(t in s):
+    if(str(t) in s):
         arr.append(temp)
     for ele in arr:
         print(ele,end="")
