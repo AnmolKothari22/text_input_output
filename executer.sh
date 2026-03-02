@@ -28,9 +28,28 @@ if [ $EXTENSION != ".cpp" ];then
 	exit 1
 fi
 
-g++ "$FILE" -o "$FILENAME".exe
+if [ $# -gt 1 ];then
+	argu=" "
+	for ((i=1; i<=$#; i++))
+	do
+    	#echo "${!i}"
+		if [ $i -ne 1 ];then
+		argu+=" ${!i}"
+		fi
+	done
+	python3 tex.py $argu > inputer2.txt
 
+	g++ "$FILE" -o "$FILENAME".exe
+	TEM=$( { time ./"$FILENAME".exe < inputer2.txt > outer.txt; } 2>&1 | awk '/^user/ {print $2}' )
+	echo time taken in execution : $TEM
+	exit
+fi
+
+
+g++ "$FILE" -o "$FILENAME".exe
 TEM=$( { time ./"$FILENAME".exe < inputer.txt > outer.txt; } 2>&1 | awk '/^user/ {print $2}' )
-echo time taken in execution  $TEM
+echo time taken in execution : $TEM
+
+
 
 
