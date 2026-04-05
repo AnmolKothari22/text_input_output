@@ -1,6 +1,10 @@
 # TEXT INPUT AND TEXT OUTPUT (NO typing in terminal AGAIN!!)
 by using this , you can type your input in inputer.txt and then expect a output in outputer.txt for a C++ program
 
+## DEPENDANCIES
+  1) must have linux or wsl
+  2) must have python
+
 ## Usage
   just make sure that all file are in the same folder as the program running
 
